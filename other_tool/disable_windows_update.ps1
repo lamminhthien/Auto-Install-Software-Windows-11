@@ -6,4 +6,3 @@ sc.exe config wuauserv start=disabled
 
 # Check service start
 sc.exe query wuauserv
-
