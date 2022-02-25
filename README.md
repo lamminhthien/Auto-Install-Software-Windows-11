@@ -6,3 +6,4 @@
 + https://en.wikiversity.org/wiki/PowerShell/Examples
 + https://www.powershellgallery.com/
 + https://www.geekrar.com/how-to-clear-all-cache-in-windows-10/
++ Windows Package Manager (winget)
