@@ -1,13 +1,28 @@
+# Clear powershell text stuff
 clear
 # Carefully check and re-install module oh-my-posh
 try {
     Import-Module oh-my-posh
-    echo "oh-my-posh already"
+    echo "oh-my-posh already installed"
 } 
 catch {
     Install-Module oh-my-posh -Scope CurrentUser
+    echo "oh-my-posh install first-time"
     Import-Module oh-my-posh
 }
+
+# Carefully check and re-install module Terminal-Icons
+try {
+    Import-Module -Name Terminal-Icons
+    echo "Terminal-Icons already installed"
+}
+catch {
+    Install-Module -Name Terminal-Icons -Repository PSGallery
+    echo "Terminal-Icons install first-time"
+    Import-Module -Name Terminal-Icons
+}
+
+
 Set-PoshPrompt -Theme M365Princess
 set-location d:\
 $Host.UI.RawUI.WindowTitle="LamMinhThien"
