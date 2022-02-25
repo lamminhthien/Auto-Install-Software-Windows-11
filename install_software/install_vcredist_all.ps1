@@ -1,6 +1,2 @@
-﻿# Install Chocolatey
-if (!(Get-Command choco.exe -ErrorAction SilentlyContinue)) {
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))}
-
-# Install VCRedist-all
-choco install vcredist-all -y
+﻿winget install Microsoft.VC++2015-2022Redist-x86
+winget install Microsoft.VC++2015-2022Redist-x64
