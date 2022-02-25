@@ -19,7 +19,7 @@
     // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
     "profiles": {
         "defaults": {
-            "colorScheme": "Campbell Powershell",
+            "colorScheme": "Campbell",
             "fontFace": "CaskaydiaCove Nerd Font",
             "useAcrylic": true,
             "acrylicOpacity": 0.7
@@ -84,7 +84,9 @@
                 "split": "auto",
                 "splitMode": "duplicate"
             },
-            "keys": "alt+shift+d"
+            "keys": "alt+shift+d",
+            "theme" : "dark"
         }
+        
     ]
 }
