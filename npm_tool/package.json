@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "open": "^8.4.0",
+    "youtube-embed": "^1.0.0",
+    "yt-search": "^2.10.3"
+  }
+}
