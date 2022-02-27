@@ -12,9 +12,7 @@ prompt.get(["keyword"], function (err, result) {
   const runSearch = async () => {
     var listVideo;
     //Search hello when keyword is null
-    result.keyword == null
-      ? (listVideo = await yts(result.keyword))
-      : (listVideo = await yts("hello"));
+      (listVideo = await yts(result.keyword));
     // How many result do you want to see
     prompt.get(["count"], function (err, result) {
       var videos = listVideo.videos.slice(0, result.count);
