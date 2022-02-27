@@ -35,10 +35,7 @@ prompt.get(["keyword"], function (err, result) {
       // Select video you want to play
       prompt.get(["number"], function (err, result) {
         //Set embed link, if use don't type, auto select first video
-        var embed;
-        result.number == null
-          ? (embed = youtubeEmbed(videos[0].url))
-          : youtubeEmbed(videos[result.number - 1].url);
+        var embed = youtubeEmbed(videos[result.number - 1].url);
         //Open embed link by default web browser
         console.log(`Now openning ${videos[result.number - 1].title} `);
         open(`https:${embed}`);
