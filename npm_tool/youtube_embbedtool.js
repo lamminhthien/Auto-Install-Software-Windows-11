@@ -12,8 +12,12 @@ prompt.get(["keyword"], function (err, result) {
     const listVideo = await yts(result.keyword);
 
     prompt.get(["count"], function (err, result) {
-      const videos = listVideo.videos.slice(0, result.count);
+      var videos = listVideo.videos.slice(0, result.count);
+      videos.length == 0
+        ? (videos = listVideo.videos.slice(0, 3))
+        : (videos = listVideo.videos.slice(0, result.count));
       videos.forEach(function (v) {
+          console.log("Your count is invalid, I will show you 3 videos ")
         console.log(`<<<${v.title} (${v.timestamp}) | ${v.author.name}>>>>`);
       });
     });
