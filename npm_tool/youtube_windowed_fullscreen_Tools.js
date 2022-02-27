@@ -11,6 +11,7 @@ prompt.get(["keyword"], function (err, result) {
   // Search and print list of video for user to choose
   const runSearch = async () => {
     var listVideo;
+    //Search hello when keyword is null
     result.keyword == null
       ? (listVideo = await yts(result.keyword))
       : (listVideo = await yts("hello"));
@@ -18,7 +19,7 @@ prompt.get(["keyword"], function (err, result) {
     prompt.get(["count"], function (err, result) {
       var videos = listVideo.videos.slice(0, result.count);
 
-      // If input is wrong,show 3 videos
+      // If input is wrong, show 3 videos
       videos.length == 0
         ? (videos = listVideo.videos.slice(0, 3))
         : (videos = listVideo.videos.slice(0, result.count));
@@ -35,7 +36,12 @@ prompt.get(["keyword"], function (err, result) {
 
       // Select video you want to play
       prompt.get(["number"], function (err, result) {
-        const embed = youtubeEmbed(videos[result.number - 1].url);
+        //Set embed link, if use don't type, auto select first video
+        var embed;
+        result.number == null
+          ? (embed = youtubeEmbed(videos[0].url))
+          : youtubeEmbed(videos[result.number - 1].url);
+        //Open embed link by default web browser
         console.log(`Now openning ${videos[result.number - 1].title} `);
         open(`https:${embed}`);
       });
