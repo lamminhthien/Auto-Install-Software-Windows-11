@@ -3,7 +3,8 @@ const yts = require("yt-search");
 const open = require("open");
 const youtubeEmbed = require("youtube-embed");
 const ytp = require("yt-play-cli");
-const { exec } = require("child_process");
+const { exec } = require('child_process');
+
 
 // Get text from keyboard input
 prompt.start();
@@ -42,19 +43,29 @@ prompt.get(["keyword"], function (err, result) {
         console.log(
           `Are you want to play it as audio, press Y to play audio, press N to play as video on chrome`
         );
-        prompt.get(["isAudio"], function (err, result) {
+        prompt.get(["isAudio"],async function (err, result) {
           console.log(result.isAudio);
           switch (result.isAudio) {
             case "y":
             case "Y":
               console.log(`Now play as audio`);
-              exec(`yt-play ${videos[result.number - 1]}`);
+              await exec(`yt-play "${videos[number - 1].title}"`, (err, stdout, stderr) => {  
+                if (err) {    
+                  //some err occurred    
+                  console.error(err)  
+                } else {   
+                  // the *entire* stdout and stderr (buffered)   
+                  console.log(`stdout: ${stdout}`);   
+                  console.log(`stderr: ${stderr}`);  
+                }
+              });
+              console.log(`${videos[number - 1].title}`)
               break;
             case "n":
             case "N": //Set embed link, if use don't type, auto select first video
-              var embed = youtubeEmbed(videos[number - 0].url);
+              var embed = youtubeEmbed(videos[number - 1].url);
               //Open embed link by default web browser
-              console.log(`Now openning ${videos[number - 0].title} `);
+              console.log(`Now openning ${videos[number - 1].title} `);
               open(`https:${embed}`);
               break;
           }
