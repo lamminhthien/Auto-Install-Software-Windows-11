@@ -35,10 +35,13 @@ prompt.get(["keyword"], function (err, result) {
       });
 
       // Select video you want to play
-      console.log(
-        `Are you want to play it as audio, press Y to play audio, press N to play as video on chrome`
-      );
       prompt.get(["number"], function (err, result) {
+        console.log("Select video you want to play");
+        //Get position of video
+        const number = result.number;
+        console.log(
+          `Are you want to play it as audio, press Y to play audio, press N to play as video on chrome`
+        );
         prompt.get(["isAudio"], function (err, result) {
           console.log(result.isAudio);
           switch (result.isAudio) {
@@ -49,9 +52,9 @@ prompt.get(["keyword"], function (err, result) {
               break;
             case "n":
             case "N": //Set embed link, if use don't type, auto select first video
-              var embed = youtubeEmbed(videos[result.number - 0].url);
+              var embed = youtubeEmbed(videos[number - 0].url);
               //Open embed link by default web browser
-              console.log(`Now openning ${videos[result.number - 0].title} `);
+              console.log(`Now openning ${videos[number - 0].title} `);
               open(`https:${embed}`);
               break;
           }

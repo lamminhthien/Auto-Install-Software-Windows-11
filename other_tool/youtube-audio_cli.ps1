@@ -1,6 +1,6 @@
 # Try to open youtube play search
 try {
-    yt-play 4j9LpYQQmUE
+    yt-play BnBk6WUqiCM
     yt-play ecJEECYUhYk
 }
 # If module or nodejs not installed
