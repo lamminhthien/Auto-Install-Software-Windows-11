@@ -2,6 +2,8 @@ const prompt = require("prompt");
 const yts = require("yt-search");
 const open = require("open");
 const youtubeEmbed = require("youtube-embed");
+const ytp = require("yt-play-cli");
+const { exec } = require("child_process");
 
 // Get text from keyboard input
 prompt.start();
@@ -12,7 +14,7 @@ prompt.get(["keyword"], function (err, result) {
   const runSearch = async () => {
     var listVideo;
     //Search hello when keyword is null
-      (listVideo = await yts(result.keyword));
+    listVideo = await yts(result.keyword);
     // How many result do you want to see
     prompt.get(["count"], function (err, result) {
       var videos = listVideo.videos.slice(0, result.count);
@@ -33,12 +35,27 @@ prompt.get(["keyword"], function (err, result) {
       });
 
       // Select video you want to play
+      console.log(
+        `Are you want to play it as audio, press Y to play audio, press N to play as video on chrome`
+      );
       prompt.get(["number"], function (err, result) {
-        //Set embed link, if use don't type, auto select first video
-        var embed = youtubeEmbed(videos[result.number - 1].url);
-        //Open embed link by default web browser
-        console.log(`Now openning ${videos[result.number - 1].title} `);
-        open(`https:${embed}`);
+        prompt.get(["isAudio"], function (err, result) {
+          console.log(result.isAudio);
+          switch (result.isAudio) {
+            case "y":
+            case "Y":
+              console.log(`Now play as audio`);
+              exec(`yt-play ${videos[result.number - 1]}`);
+              break;
+            case "n":
+            case "N": //Set embed link, if use don't type, auto select first video
+              var embed = youtubeEmbed(videos[result.number - 0].url);
+              //Open embed link by default web browser
+              console.log(`Now openning ${videos[result.number - 0].title} `);
+              open(`https:${embed}`);
+              break;
+          }
+        });
       });
     });
   };
