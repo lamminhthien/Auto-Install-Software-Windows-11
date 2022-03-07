@@ -1,16 +1,16 @@
-# VPS i use have pre-installed chocolatey
-# Git
-choco install git -y
+# VPS i use have pre-installed chocolatey 
+
 # Github desktop
-choco install github-desktop -y
 # Visual studio code
-choco install vscode -y
 # NodeJS NPM
-choco install nodejs -y
+# Git
+choco install git github-desktop vscode nodejs  -y
 
 
-# Install TSLint Global
-npm install -g tslint
-# Install TSLink Vscode
-code --install-extension ms-vscode.vscode-typescript-tslint-plugin
+
+
+# # Install TSLint Global
+# npm install -g tslint
+# # Install TSLink Vscode
+# code --install-extension ms-vscode.vscode-typescript-tslint-plugin
 
