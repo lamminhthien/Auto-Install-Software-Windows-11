@@ -37,6 +37,9 @@ if (test-path "$IFEO\0") {
 $_Press_Enter
 #::
 
+# Set time zone For Vietnam
+Set-TimeZone -Name 'SE Asia Standard Time'
+
 
 # VPS i use have pre-installed chocolatey 
 
