@@ -51,6 +51,7 @@ choco install git github-desktop vscode nodejs  -y
 
 # # Install TSLint Global
 # npm install -g tslint
-# # Install TSLink Vscode
-# code --install-extension ms-vscode.vscode-typescript-tslint-plugin
+# Install TSLink for Vscode
+cd 'C:\Program Files\Microsoft VS Code\'
+ code --install-extension ms-vscode.vscode-typescript-tslint-plugin
 
