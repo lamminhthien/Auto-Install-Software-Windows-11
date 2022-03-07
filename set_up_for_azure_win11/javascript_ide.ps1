@@ -1,4 +1,6 @@
 # VPS i use have pre-installed chocolatey
+# Git
+choco install git
 # Github desktop
 choco install github-desktop -y
 # Visual studio code
