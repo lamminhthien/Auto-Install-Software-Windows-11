@@ -47,7 +47,7 @@ Set-TimeZone -Name 'SE Asia Standard Time'
 # Visual studio code
 # NodeJS NPM
 # Git
-choco install git github-desktop vscode nodejs unikey openjdk11 -Y
+choco install git github-desktop vscode nodejs unikey openjdk11 python -Y
 
 
 
