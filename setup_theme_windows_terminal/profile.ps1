@@ -1,4 +1,4 @@
-# Clear powershell text stuff
+# Clear powershell text stuff2
 clear
 # Carefully check and re-install module oh-my-posh
 try {
